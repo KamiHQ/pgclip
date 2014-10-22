@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Query:</strong>
+  <%= @query.query %>
+</p>
+
+In CSV format: <%= link_to 'CSV', result_path(@query.id, format: :csv) %>
+<br />
+In JSON format: <%= link_to "JSON", result_path(@query.id, format: :json) %>
+
+<p>
+  <strong>Last result:</strong>
+  <div id="result">
+  </div>
+  <script type="text/javascript">
+    $.ajax({
+      type: "GET",
+      url: result_path(@query.id),
+      success: function(data) {
+            // data is ur summary
+           $('#result').html(data);
+      }
+
+    });
+  </script>
+</p>
+
+<%= link_to 'Edit', edit_query_path(@query) %> |
+<%= link_to 'Back', queries_path %>

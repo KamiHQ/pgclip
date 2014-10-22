@@ -1,0 +1,25 @@
+From: <%= @query_time %>
+
+<table>
+<thead>
+<tr>
+<% @fields.each do |field| %>
+  <th>
+    <%= field %>
+  </th>
+<% end %>
+</tr>
+</thead>
+<tbody>
+<% @values.each do |value| %>
+<tr>
+  <% value.each do |field| %>
+    <td>
+      <%= field %>
+    </td>
+  <% end %>
+</tr>
+<% end %>
+</tbody>
+</table>
+
