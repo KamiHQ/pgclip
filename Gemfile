@@ -1,3 +1,4 @@
+ruby '2.1.3'
 source 'https://rubygems.org'
 
 
@@ -34,7 +35,7 @@ gem 'unicorn'
 
 gem 'sucker_punch', '~> 1.0'
 
-
+gem 'rails_12factor'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
