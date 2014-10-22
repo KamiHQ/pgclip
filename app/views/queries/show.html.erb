@@ -1,3 +1,4 @@
+<%= link_to 'Back', queries_path %>
 <p id="notice"><%= notice %></p>
 
 <%= render 'form' %>
@@ -9,6 +10,7 @@ In JSON format: <%= link_to "JSON", result_path(@query.id, format: :json) %>
 <p>
   <strong>Last result:</strong>
   <div id="result">
+    Loading.....
   </div>
   <script type="text/javascript">
     $.ajax({
@@ -23,4 +25,3 @@ In JSON format: <%= link_to "JSON", result_path(@query.id, format: :json) %>
   </script>
 </p>
 
-<%= link_to 'Back', queries_path %>
