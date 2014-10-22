@@ -79,6 +79,6 @@ class QueriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def query_params
-      params.require(:query).permit(:query, :ttl_minutes)
+      params.require(:query).permit(:query, :ttl_minutes, :name)
     end
 end
