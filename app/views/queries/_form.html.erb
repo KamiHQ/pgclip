@@ -15,6 +15,15 @@
     <%= f.label :query %><br>
     <%= f.text_area :query %>
   </div>
+  <script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("query_query"), {
+      mode: "text/x-sql",
+      indentWithTabs: true,
+      smartIndent: true,
+      lineNumbers: true,
+      matchBrackets : true
+    });
+  </script>
   <div class="field">
     <%= f.label :ttl_minutes %><br>
     <%= f.number_field :ttl_minutes %>

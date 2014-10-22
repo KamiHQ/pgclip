@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Query:</strong>
-  <%= @query.query %>
-</p>
+<%= render 'form' %>
 
 In CSV format: <%= link_to 'CSV', result_path(@query.id, format: :csv) %>
 <br />
@@ -26,5 +23,4 @@ In JSON format: <%= link_to "JSON", result_path(@query.id, format: :json) %>
   </script>
 </p>
 
-<%= link_to 'Edit', edit_query_path(@query) %> |
 <%= link_to 'Back', queries_path %>

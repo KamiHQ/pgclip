@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :queries
+  resources :queries, except: [:edit]
   resources :results, only: [:show]
   root 'queries#index'
 
