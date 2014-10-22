@@ -15,4 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require codemirror
-//= require codemirror/modes/ruby
+//= require codemirror/modes/sql
