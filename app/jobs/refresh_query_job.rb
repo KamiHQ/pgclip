@@ -15,7 +15,11 @@ class RefreshQueryJob
     config.delete_if { |k, v| v.nil? }
 
     conn = PG::Connection.new(config)
+    start = Time.now
     r = conn.exec(query.query)
+    finish = Time.now
+    execution_time = finish - start
+
     query_result = {
       fields: r.fields,
       values: r.values
@@ -26,6 +30,7 @@ class RefreshQueryJob
     result = Result.new
     result.query = query
     result.result = query_result.to_yaml
+    result.execution_time = execution_time
     result.save!
   end
 end

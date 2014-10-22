@@ -20,7 +20,7 @@ class ResultsController < ApplicationController
 
     query_result = Psych.safe_load(result.result, [Symbol])
 
-    @query_time = result.created_at
+    @result = result
     @fields = query_result[:fields]
     @values = query_result[:values]
   end
