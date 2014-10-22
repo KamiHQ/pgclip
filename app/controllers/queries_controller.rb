@@ -11,15 +11,6 @@ class QueriesController < ApplicationController
   # GET /queries/1
   # GET /queries/1.json
   def show
-    last_queried_at = @query.last_result.andand.created_at
-    p @query.ttl_minutes.minutes.ago
-    p @query.ttl_minutes
-    unless last_queried_at.andand > @query.ttl_minutes.minutes.ago
-      p "Refreshing"
-      RefreshQueryJob.new.async.perform(@query.id) 
-    else
-      p "Not Refreshing, #{last_queried_at.andand} , #{@query.ttl_minutes.minutes.ago}"
-    end
   end
 
   # GET /queries/new
