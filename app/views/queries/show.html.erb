@@ -17,7 +17,6 @@ In JSON format: <%= link_to "JSON", result_path(@query.id, format: :json) %>
       type: "GET",
       url: "<%= result_path(@query.id) %>",
       success: function(data) {
-            // data is ur summary
            $('#result').html(data);
       }
 
