@@ -1,27 +1,33 @@
 require 'psych'
 
 class ResultsController < ApplicationController
-  def show
-    @query = Query.find(params[:id])
+  before_action :set_query, only: [:show]
 
-    last_queried_at = @query.last_result.andand.created_at
-    unless (last_queried_at.andand > @query.ttl_minutes.minutes.ago) && (last_queried_at.andand > @query.updated_at)
+  def show
+    unless @query.fresh? && @query.current?
       p "Refreshing"
       RefreshQueryJob.new.async.perform(@query.id) 
     else
-      p "Not Refreshing, #{last_queried_at.andand} , #{@query.ttl_minutes.minutes.ago}"
+      p "Not Refreshing"
     end
 
-    result = @query.last_result
-    unless result
-      render nothing:true, status: 500
+    unless @query.has_results? && @query.current?
+      render json: {"error" => "Data not ready yet"}, status: 503 # We don't have results yet, tell the client to come back later.
       return
     end
 
+    result = @query.last_result
     query_result = Psych.safe_load(result.result, [Symbol])
 
     @result = result
     @fields = query_result[:fields]
     @values = query_result[:values]
+
+    render :layout => false
   end
+
+  private
+    def set_query
+      @query = Query.find(params[:id])
+    end
 end

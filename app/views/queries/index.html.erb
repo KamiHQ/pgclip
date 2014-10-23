@@ -13,7 +13,7 @@
     <% @queries.each do |query| %>
       <tr>
         <td><%= query.name %></td>
-        <td><%= query.last_result.created_at %></td>
+        <td><%= query.last_queried_at %></td>
         <td><%= link_to 'Show', query %></td>
         <td><%= link_to 'Destroy', query, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

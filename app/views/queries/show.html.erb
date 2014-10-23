@@ -18,6 +18,15 @@ In JSON format: <%= link_to "JSON", result_path(@query.id, format: :json) %>
       url: "<%= result_path(@query.id) %>",
       success: function(data) {
            $('#result').html(data);
+      },
+      error: function(xhr) {
+        console.log(xhr.status);
+        self = this;
+        if(xhr.status == 503) {
+          setTimeout(function() {
+            $.ajax(self);
+          }, 2000);
+        }
       }
 
     });
