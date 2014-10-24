@@ -17,7 +17,7 @@ gem 'andand'
 gem 'paper_trail', '~> 3.0.6'
 gem 'with_advisory_lock'
 
-gem 'polymer-rails'
+gem 'polymer-rails', git: "https://github.com/jordan-thoms/polymer-rails.git"
 gem 'polymer-paper-rails', git: 'https://github.com/jordan-thoms/polymer-paper-rails.git'
 
 
