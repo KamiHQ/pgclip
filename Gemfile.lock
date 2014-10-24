@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/jordan-thoms/polymer-rails.git
-  revision: 8f01478228941fa9b0a358b7131c35dd3a56a47d
+  revision: 15d5351caba900fa9e357be70ffbb76f616b6deb
   specs:
     polymer-rails (0.2.3)
       nokogiri (~> 1.6)
@@ -71,7 +71,7 @@ GEM
     kgio (2.9.2)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
-    mime-types (2.4.2)
+    mime-types (2.4.3)
     mini_portile (0.6.0)
     minitest (5.4.2)
     multi_json (1.10.1)
