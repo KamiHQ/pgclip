@@ -1,4 +1,6 @@
 <core-toolbar>
   <a href="/"><paper-icon-button icon="<%= yield(:icon).presence || "menu" %>"></paper-icon-button></a>
   <span flex><%= yield(:title) %></span>
+
+  <%= yield(:toolbar) %>
 </core-toolbar>

@@ -1,6 +1,11 @@
 <% provide(:title, @query.name) %>
 <% provide(:icon, "arrow-back") %>
 
+<% content_for :toolbar do %>
+  <% link_to @query, method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <paper-icon-button icon="delete"></paper-icon-button>
+  <% end %>
+<% end %>
 
 <%= render 'form' %>
 <br style="clear:both;" />
