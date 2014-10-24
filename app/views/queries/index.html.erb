@@ -1,26 +1,21 @@
-<h1>Listing queries</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Last queried</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @queries.each do |query| %>
-      <tr>
-        <td><%= query.name %></td>
-        <td><%= query.last_queried_at %></td>
-        <td><%= link_to 'Show', query %></td>
-        <td><%= link_to 'Destroy', query, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% provide(:title, "Queries") %>
+<% @queries.each do |query| %>
+  <%= link_to query do %>
+    <div class="card">
+      <paper-shadow z="1"></paper-shadow>
+      <paper-ripple fit></paper-ripple>
+      <div class="name">
+        <%= query.name %>
+      </div>
+      <div class="queried_at">
+        Last Updated <%= query.last_queried_at %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
 <br>
 
-<%= link_to 'New Query', new_query_path %>
+<%= link_to new_query_path, id:"add-button" do %>
+  <paper-fab icon="add"></paper-fab>
+<% end %>

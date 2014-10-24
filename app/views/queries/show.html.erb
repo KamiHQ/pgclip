@@ -1,16 +1,17 @@
-<%= link_to 'Back', queries_path %>
-<p id="notice"><%= notice %></p>
+<% provide(:title, @query.name) %>
+<% provide(:icon, "arrow-back") %>
+
 
 <%= render 'form' %>
+<br style="clear:both;" />
 
-In CSV format: <%= link_to 'CSV', result_path(@query.id, format: :csv) %>
-<br />
-In JSON format: <%= link_to "JSON", result_path(@query.id, format: :json) %>
-
-<p>
-  <strong>Last result:</strong>
+<div id="result_container">
+  <h2>Results</h2>
   <div id="result">
-    Loading.....
+    <div id="spinner">
+      <paper-spinner active></paper-spinner>
+      <p> Please Wait... </p>
+    </div>
   </div>
   <script type="text/javascript">
     $.ajax({
@@ -31,5 +32,4 @@ In JSON format: <%= link_to "JSON", result_path(@query.id, format: :json) %>
 
     });
   </script>
-</p>
-
+</div>

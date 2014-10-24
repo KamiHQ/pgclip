@@ -1,4 +1,4 @@
-<%= form_for(@query) do |f| %>
+<%= form_for(@query, html: {:is => "component-form"}) do |f| %>
   <% if @query.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@query.errors.count, "error") %> prohibited this query from being saved:</h2>
@@ -10,10 +10,8 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+  <paper-input floatingLabel name="query[name]" label="Name" value="<%= @query.name %>" style="display: inline-block;"></paper-input> <paper-input floatingLabel name="query[ttl_minutes]" type="number" label="Maximum permissible age (minutes)" style="display: inline-block;" value="<%= @query.ttl_minutes %>"></paper-input>
+
 
   <div class="field">
     <%= f.label :query %><br>
@@ -28,11 +26,5 @@
       matchBrackets : true
     });
   </script>
-  <div class="field">
-    <%= f.label :ttl_minutes %><br>
-    <%= f.number_field :ttl_minutes %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <paper-button raised class="colored" role="button" tabindex="0" style="overflow: visible; float:right" type="submit">   <core-icon icon="check"></core-icon>Save Changes</paper-button>
 <% end %>

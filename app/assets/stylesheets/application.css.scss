@@ -1,0 +1,128 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require codemirror
+ */
+ body {
+   font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+   font-size: 14px;
+   margin: 0;
+   -webkit-tap-highlight-color: rgba(0,0,0,0);
+   -webkit-touch-callout: none;
+ }
+
+ section {
+   padding: 20px 0;
+ }
+
+ section > div {
+   padding: 14px;
+   font-size: 16px;
+ }
+
+ paper-button.colored {
+   color: #4285f4;
+ }
+
+ paper-button[raised].colored {
+   background: #4285f4;
+   color: #fff;
+ }
+
+ paper-button.custom > core-icon {
+   margin-right: 4px;
+ }
+
+ paper-button.hover:hover {
+   background: #eee;
+ }
+
+ paper-button.blue-ripple::shadow #ripple {
+   color: #4285f4;
+ }
+ .card {
+   background: white;
+   position: relative;
+   margin: 16px;
+   border-radius: 2px;
+   padding: 20px;
+ }
+ a {text-decoration:none;
+  color: black;}
+
+.name {
+  font-size: 3em;
+  text-decoration: none;
+}
+
+.container {
+  padding: 40px;
+}
+
+#spinner {
+  text-align: center;
+  padding: 150px;
+
+  p {
+    padding: 20px;
+  }
+}
+
+#time {
+  float:left;
+  font-size: 1.2em;
+}
+
+#export {
+  float:right;
+  margin-top: -20px;
+}
+
+#result-table {
+  clear: both;
+  padding-top: 50px;
+  max-width: 100%;
+  overflow: auto;
+
+  table {
+    /*table-layout: fixed;*/
+    font-size: 12px;
+    background: #fff;
+    width: 480px;
+    border-collapse: collapse;
+    text-align: left;
+
+    th {
+      font-size: 14px;
+      font-weight: normal;
+      color: #039;
+      padding: 10px 8px;
+      border-bottom: 2px solid #6678b1;
+    }
+    td {
+      color: #669;
+      padding: 9px 8px 0px 8px;
+    }
+    tbody tr:hover td {
+      color: #009;
+    }
+  }
+}
+
+
+#add-button {
+  position: fixed;
+  right: 50px;
+  bottom: 20px;
+}

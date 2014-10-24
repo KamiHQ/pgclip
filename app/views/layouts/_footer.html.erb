@@ -1,0 +1,8 @@
+<% flash.each do |type, message| %>
+  <paper-toast id="<%= type %>" text="<%= notice %>"></paper-toast>
+  <script>
+    $( document ).ready(function() {
+      document.querySelector('#<%= type %>').show()
+    });
+  </script>
+<% end %>

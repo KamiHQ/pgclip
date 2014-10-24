@@ -1,25 +1,36 @@
-From: <%= @result.created_at %> , took <%= @result.execution_time %>s
-
-<table>
-<thead>
-<tr>
-<% @fields.each do |field| %>
-  <th>
-    <%= field %>
-  </th>
+<div id="time">
+Queried At: <%= @result.created_at %>. Executed in <%= @result.execution_time %>s
+</div>
+<div id="export">
+<%= link_to result_path(@query.id, format: :csv), :target => "_blank" do %>
+  <paper-button raised>CSV</paper-button>
 <% end %>
-</tr>
-</thead>
-<tbody>
-<% @values.each do |value| %>
-<tr>
-  <% value.each do |field| %>
-    <td>
-      <%= field %>
-    </td>
-  <% end %>
-</tr>
+<%= link_to result_path(@query.id, format: :json), :target => "_blank" do %>
+  <paper-button raised>JSON</paper-button>
 <% end %>
-</tbody>
-</table>
+</div>
 
+<div id="result-table">
+  <table>
+    <thead>
+    <tr>
+    <% @fields.each do |field| %>
+      <th>
+        <%= field %>
+      </th>
+    <% end %>
+    </tr>
+    </thead>
+    <tbody>
+    <% @values.each do |value| %>
+    <tr>
+      <% value.each do |field| %>
+        <td>
+          <%= field %>
+        </td>
+      <% end %>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

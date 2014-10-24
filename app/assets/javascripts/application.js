@@ -10,9 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require polymer/platform
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//a= require turbolinks 
 //= require_tree .
 //= require codemirror
 //= require codemirror/modes/sql

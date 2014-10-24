@@ -1,0 +1,29 @@
+<polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
+  <script>
+    Polymer('component-form', {
+      
+      handleClick: function(event, detail, sender) {
+        if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'submit') {
+          this.prepareSubmit();
+          this.submit();
+        }
+      },
+
+      prepareSubmit: function() {
+        Array.prototype.forEach.call(this.children, function(child) {
+          var name = child.getAttribute('name');
+
+          // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
+          if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
+            element = document.createElement('input');
+            element.setAttribute('type', 'hidden');
+            element.setAttribute('name', name);
+            element.setAttribute('value', child.value);
+            this.appendChild(element);
+          }
+        }.bind(this));
+      }
+
+    });
+  </script>
+</polymer-element>
