@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:jordan-thoms/polymer-paper-rails.git
+  remote: https://github.com/jordan-thoms/polymer-paper-rails.git
   revision: c34cc4c40cce676a1a9ae272179b7e43f62d7e47
   specs:
     polymer-paper-rails (0.2.0)

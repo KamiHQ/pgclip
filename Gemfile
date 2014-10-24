@@ -18,7 +18,7 @@ gem 'paper_trail', '~> 3.0.6'
 gem 'with_advisory_lock'
 
 gem 'polymer-rails'
-gem 'polymer-paper-rails', git: 'git@github.com:jordan-thoms/polymer-paper-rails.git'
+gem 'polymer-paper-rails', git: 'https://github.com/jordan-thoms/polymer-paper-rails.git'
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
