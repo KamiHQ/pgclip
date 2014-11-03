@@ -1,8 +1,7 @@
 <%
 require 'csv'
 lines = []
-puts CSV.generate_line @fields
-lines.append(CSV.generate_line @fields)
+lines.append(CSV.generate_line(@fields, force_quotes: true))
 @values.each do |value|
   lines << CSV.generate_line(value, force_quotes: true)
 end
