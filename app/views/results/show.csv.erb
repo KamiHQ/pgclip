@@ -8,4 +8,4 @@ lines.append(CSV.generate_line @fields)
 end
 lines
 %>
-<% lines.each do |line| %><%= line %><% end %>
+<% lines.each do |line| %><%= line.html_safe %><% end %>
