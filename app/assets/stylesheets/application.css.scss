@@ -62,14 +62,21 @@
   color: black;}
 
 .name {
-  font-size: 1.8em;
+  float: left;
+  font-size: 1.5em;
   text-decoration: none;
 }
 
+.queried_at {
+  float: right;
+}
 .container {
   padding: 40px;
 }
 
+.clear {
+  clear:both;
+}
 #spinner {
   text-align: center;
   padding: 150px;
