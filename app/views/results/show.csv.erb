@@ -4,8 +4,8 @@ lines = []
 puts CSV.generate_line @fields
 lines.append(CSV.generate_line @fields)
 @values.each do |value|
-  lines << CSV.generate_line(value)
+  lines << CSV.generate_line(value, force_quotes: true)
 end
 lines
 %>
-<% lines.each do |line| %> <%= line %> <% end %>
+<% lines.each do |line| %><%= line %><% end %>
