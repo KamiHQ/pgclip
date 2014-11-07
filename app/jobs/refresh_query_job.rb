@@ -2,6 +2,7 @@ class RefreshQueryJob
   include SuckerPunch::Job
 
   def perform(query_id)
+    puts "Beginning job for #{query_id}"
     ActiveRecord::Base.connection_pool.with_connection do
       Query.with_advisory_lock("refresh-#{query_id}", 0) do
         query = Query.find(query_id)
