@@ -77,7 +77,8 @@
 .clear {
   clear:both;
 }
-#spinner {
+
+.spinner {
   text-align: center;
   padding: 150px;
 
@@ -86,17 +87,17 @@
   }
 }
 
-#time {
+.time {
   float:left;
   font-size: 1.2em;
 }
 
-#export {
+.export {
   float:right;
   margin-top: -20px;
 }
 
-#result-table {
+.result-table {
   clear: both;
   padding-top: 50px;
   max-width: 100%;
@@ -127,6 +128,12 @@
   }
 }
 
+.error {
+  clear: both;
+  padding-top: 50px;
+  max-width: 100%;
+  overflow: auto;
+}
 
 #add-button {
   position: fixed;

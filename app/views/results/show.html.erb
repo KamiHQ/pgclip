@@ -1,36 +1,45 @@
-<div id="time">
-Queried At: <%= @result.created_at %>. Executed in <%= @result.execution_time %>s
+<div class="time">
+Queried At: <%= @result.created_at %>. <% unless @result.error %> Executed in <%= @result.execution_time %>s <% end %>
 </div>
-<div id="export">
-<%= link_to result_path(@query.id, format: :csv), :target => "_blank" do %>
-  <paper-button raised>CSV</paper-button>
-<% end %>
-<%= link_to result_path(@query.id, format: :json), :target => "_blank" do %>
-  <paper-button raised>JSON</paper-button>
-<% end %>
-</div>
+<% unless @result.error %>
+  <div class="export">
+  <%= link_to result_path(@query.id, format: :csv), :target => "_blank" do %>
+    <paper-button raised>CSV</paper-button>
+  <% end %>
+  <%= link_to result_path(@query.id, format: :json), :target => "_blank" do %>
+    <paper-button raised>JSON</paper-button>
+  <% end %>
+  </div>
 
-<div id="result-table">
-  <table>
-    <thead>
-    <tr>
-    <% @fields.each do |field| %>
-      <th>
-        <%= field %>
-      </th>
-    <% end %>
-    </tr>
-    </thead>
-    <tbody>
-    <% @values.each do |value| %>
-    <tr>
-      <% value.each do |field| %>
-        <td>
+  <div class="result-table">
+    <table>
+      <thead>
+      <tr>
+      <% @fields.each do |field| %>
+        <th>
           <%= field %>
-        </td>
+        </th>
       <% end %>
-    </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+      </tr>
+      </thead>
+      <tbody>
+      <% @values.each do |value| %>
+      <tr>
+        <% value.each do |field| %>
+          <td>
+            <%= field %>
+          </td>
+        <% end %>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <div class="error">
+    <h3>Error:</h3>
+    <pre>
+    <%= @result.error %>
+    </pre>
+  </div>
+<% end %>

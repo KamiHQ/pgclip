@@ -13,12 +13,13 @@
 <div id="result_container">
   <h2>Results</h2>
   <div id="result">
-    <div id="spinner">
+    <div class="spinner">
       <paper-spinner active></paper-spinner>
       <p> Please Wait... </p>
     </div>
   </div>
   <script type="text/javascript">
+    window.sleep_time = 100;
     $.ajax({
       type: "GET",
       url: "<%= result_path(@query.id) %>",
@@ -28,10 +29,12 @@
       error: function(xhr) {
         console.log(xhr.status);
         self = this;
+        window.sleep_time = Math.min(window.sleep_time * 1.5, 5000);
         if(xhr.status == 503) {
+          console.log("Sleeping for " + window.sleep_time)
           setTimeout(function() {
             $.ajax(self);
-          }, 2000);
+          }, window.sleep_time);
         }
       }
 

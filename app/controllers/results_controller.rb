@@ -16,13 +16,13 @@ class ResultsController < ApplicationController
       return
     end
 
-    result = @query.last_result
-    query_result = Psych.safe_load(result.result, [Symbol])
+    @result = @query.last_result
+    unless @result.error
+      query_result = Psych.safe_load(@result.result, [Symbol])
 
-    @result = result
-    @fields = query_result[:fields]
-    @values = query_result[:values]
-
+      @fields = query_result[:fields]
+      @values = query_result[:values]
+    end
     render :layout => false
   end
 

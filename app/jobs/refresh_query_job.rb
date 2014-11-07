@@ -18,22 +18,30 @@ class RefreshQueryJob
 
         conn = PG::Connection.new(config)
         start = Time.now
-        r = conn.exec(query.query)
-        finish = Time.now
-        execution_time = finish - start
+        begin
+          r = conn.exec(query.query)
+          finish = Time.now
+          execution_time = finish - start
 
-        query_result = {
-          fields: r.fields,
-          values: r.values
-        }
-        r.clear()
-        conn.close()
+          query_result = {
+            fields: r.fields,
+            values: r.values
+          }
+          r.clear()
+          conn.close()
 
-        result = Result.new
-        result.query = query
-        result.result = query_result.to_yaml
-        result.execution_time = execution_time
-        result.save!
+          result = Result.new
+          result.query = query
+          result.result = query_result.to_yaml
+          result.execution_time = execution_time
+          result.save!
+        rescue PG::Error => e
+          puts e.message
+          result = Result.new
+          result.query = query
+          result.error = e.message
+          result.save!
+        end
         puts "Finished query #{query_id}"
       end
     end
