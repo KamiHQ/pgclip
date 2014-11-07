@@ -28,7 +28,6 @@ class RefreshQueryJob
             values: r.values
           }
           r.clear()
-          conn.close()
 
           result = Result.new
           result.query = query
@@ -41,6 +40,8 @@ class RefreshQueryJob
           result.query = query
           result.error = e.message
           result.save!
+        ensure
+          conn.close()
         end
         puts "Finished query #{query_id}"
       end
