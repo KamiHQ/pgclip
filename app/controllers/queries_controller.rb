@@ -5,7 +5,7 @@ class QueriesController < ApplicationController
   # GET /queries
   # GET /queries.json
   def index
-    @queries = Query.all
+    @queries = Query.all.order('name ASC')
   end
 
   # GET /queries/1
