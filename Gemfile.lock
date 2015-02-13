@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/jasonwill/polymer-paper-rails.git
+  revision: 7cddfee8e372df968c153e0785b957c9622d1560
+  specs:
+    polymer-paper-rails (0.2.5)
+      polymer-rails (~> 0.2.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -68,8 +75,6 @@ GEM
       activerecord (>= 3.0, < 5.0)
       activesupport (>= 3.0, < 5.0)
     pg (0.18.1)
-    polymer-paper-rails (0.2.5)
-      polymer-rails (~> 0.2.5)
     polymer-rails (0.2.7)
       nokogiri (~> 1.6)
       nokogumbo (~> 1.1)
@@ -152,7 +157,7 @@ DEPENDENCIES
   jquery-rails
   paper_trail (~> 3.0.6)
   pg
-  polymer-paper-rails
+  polymer-paper-rails!
   polymer-rails
   rails (= 4.1.6)
   rails_12factor
