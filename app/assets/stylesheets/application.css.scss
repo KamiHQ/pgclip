@@ -51,12 +51,15 @@
  paper-button.blue-ripple::shadow #ripple {
    color: #4285f4;
  }
+
  .card {
-   background: white;
    position: relative;
+   display: block;
+   background: white;
+   box-sizing: border-box;
    margin: 16px;
+   padding: 16px;
    border-radius: 2px;
-   padding: 20px;
  }
  a {text-decoration:none;
   color: black;}
@@ -140,3 +143,16 @@
   right: 50px;
   bottom: 20px;
 }
+
+
+.aaaa {
+  display: inline-block;
+  background: white;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 2px;
+}
+

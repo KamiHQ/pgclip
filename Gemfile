@@ -1,4 +1,4 @@
-ruby '2.1.5'
+ruby '2.2.0'
 source 'https://rubygems.org'
 
 
@@ -17,9 +17,8 @@ gem 'andand'
 gem 'paper_trail', '~> 3.0.6'
 gem 'with_advisory_lock'
 
-gem 'polymer-rails', git: "https://github.com/jordan-thoms/polymer-rails.git"
-gem 'polymer-paper-rails', git: 'https://github.com/jordan-thoms/polymer-paper-rails.git'
-
+gem 'polymer-rails'
+gem 'polymer-paper-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby

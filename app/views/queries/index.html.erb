@@ -1,8 +1,7 @@
 <% provide(:title, "Queries") %>
 <% @queries.each do |query| %>
   <%= link_to query do %>
-    <div class="card">
-      <paper-shadow z="1"></paper-shadow>
+    <paper-shadow z="1" class="card">
       <paper-ripple fit></paper-ripple>
       <div class="name">
         <%= query.name %>
@@ -11,7 +10,7 @@
         Last Updated <%= query.last_queried_at %>
       </div>
       <div class="clear"></div>
-    </div>
+    </paper-shadow>
   <% end %>
 <% end %>
 
