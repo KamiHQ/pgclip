@@ -20,6 +20,7 @@ gem 'with_advisory_lock'
 gem 'polymer-rails'
 gem 'polymer-paper-rails', git: 'https://github.com/jasonwill/polymer-paper-rails.git'
 
+gem 'rack-cors', :require => 'rack/cors'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby

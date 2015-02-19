@@ -20,5 +20,14 @@ module Pgclip
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.version = '1.1'
+
+    if ENV["CORS_DOMAIN"]
+        config.middleware.insert_before 0, "Rack::Cors" do
+          allow do
+            origins ENV["CORS_DOMAIN"]
+            resource '*', :headers => :any, :methods => [:get]
+          end
+        end
+    end
   end
 end
