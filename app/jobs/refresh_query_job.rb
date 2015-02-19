@@ -1,7 +1,7 @@
 class RefreshQueryJob
   include SuckerPunch::Job
 
-  def perform(query_id)
+  def perform(query_id, params = nil)
     puts "Beginning job for #{query_id}"
     ActiveRecord::Base.connection_pool.with_connection do
       Query.with_advisory_lock("refresh-#{query_id}", 0) do
@@ -20,7 +20,7 @@ class RefreshQueryJob
         conn = PG::Connection.new(config)
         start = Time.now
         begin
-          r = conn.exec(query.query)
+          r = conn.exec_params(query.query, params)
           finish = Time.now
           execution_time = finish - start
 
@@ -34,12 +34,14 @@ class RefreshQueryJob
           result.query = query
           result.result = query_result.to_yaml
           result.execution_time = execution_time
+          result.parameters = params
           result.save!
         rescue PG::Error => e
           puts e.message
           result = Result.new
           result.query = query
           result.error = e.message
+          result.parameters = params
           result.save!
         ensure
           conn.close()
