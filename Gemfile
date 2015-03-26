@@ -46,6 +46,11 @@ gem 'unicorn'
 gem 'sucker_punch', '~> 1.0'
 
 gem 'rails_12factor'
+
+group :development do
+  gem 'foreman'
+end
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
